@@ -1,0 +1,10 @@
+CONDA_EXE ?= ~/miniconda3/bin/conda
+DEBUG_FILE := debug.txt
+MODULE_NAME := src
+TESTS_NO_CI = $(MODULE_NAME)/tests/no_ci
+PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+PROJECT_NAME := make_better_defaults
+PYTHON_INTERPRETER := python3
+ARCH := $(shell $(PYTHON_INTERPRETER) -c "import platform; print(platform.platform())")
+VIRTUALENV := conda
+EASYDATA_LOCKFILE := environment.$(ARCH).lock.yml

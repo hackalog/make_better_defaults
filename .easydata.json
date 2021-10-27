@@ -1,0 +1,13 @@
+{
+    "_template": "easydata",
+    "author_name": "Kjell Wooding <kjell@wooding.org>",
+    "conda_path": "~/miniconda3/bin/conda",
+    "default_branch": "main",
+    "description": "Make Better Defaults: Improving your data science workflows with \"make\". A Pydata Global 2021 Talk",
+    "module_name": "src",
+    "open_source_license": "MIT",
+    "project_name": "Make Better Defaults",
+    "python_version": "3.8",
+    "repo_name": "make_better_defaults",
+    "upstream_location": "github.com"
+}

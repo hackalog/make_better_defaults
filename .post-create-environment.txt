@@ -1,0 +1,15 @@
+
+Now would be a good time to initialize a git repo; i.e.
+>>> git init
+>>> git add .
+>>> git commit -m 'initial import'
+>>> git branch easydata    # tag for future easydata upgrades
+
+NOTE: By default, raw data is installed and unpacked in the
+`make_better_defaults/data` directory. If you are working with big data (or
+have a small disk partition), it is HIGHLY recommended that you point
+this directory elsewhere; i.e. by setting paths['data_path']. For example:
+>>> conda activate make_better_defaults
+>>> python -c "import src; src.paths['data_path'] = '/path/to/big/data'"
+
+You have been warned.
