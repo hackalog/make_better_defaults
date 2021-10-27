@@ -71,3 +71,44 @@ endif
 .PHONY: check_environment
 ## Check if environment is enabled and correctly configured
 check_environment: environment_enabled check_lockfile $(EASYDATA_LOCKFILE)
+
+.phony: help_update_easydata
+help_update_easydata:
+	@echo "\nTo update easydata on an existing repo, verify that you have an 'easydata' branch"
+	@echo "\n>>>git rev-parse -q --verify easydata"
+	@echo "\nIf no output is given, do this:"
+	@echo "\n>>>git branch easydata `git rev-list --max-parents=0 HEAD`"
+	@echo "\nIf no output is given, do this:"
+	@echo "\nCheck-in all your changes, then merge the new easydata branch into yours"
+	@echo "\ngit branch easydata"
+	@echo "# replace easydata with https://github.com/hackalog/easydata if needed"
+	@echo "pushd .. && cookiecutter --config-file $(PROJECT_NAME)/.easydata.yml easydata -f --no-input && popd"
+	@echo "git add -p  # add all the changes"
+	@echo "git commit -m 'sync with easydata'"
+	@echo "git checkout main"
+	@echo "git merge easydata"
+
+.PHONY: debug_environment
+## dump useful debugging information to $(DEBUG_FILE)
+debug_environment:
+	@echo "\n\n======================"
+	@echo "\nPlease include the contents $(DEBUG_FILE) when submitting an issue or support request.\n"
+	@echo "======================\n\n"
+	@echo "##\n## Git status\n##\n" > $(DEBUG_FILE)
+	git status >> $(DEBUG_FILE)
+	@echo "\n##\n## git log\n##\n" >> $(DEBUG_FILE)
+	git log -8 --graph --oneline --decorate --all >> $(DEBUG_FILE)
+	@echo "\n##\n## Github remotes\n##\n" >> $(DEBUG_FILE)
+	git remote -v >> $(DEBUG_FILE)
+	@echo "\n##\n## github SSH credentials\n##\n" >> $(DEBUG_FILE)
+	ssh git@github.com 2>&1 | cat >> $(DEBUG_FILE)
+	@echo "\n##\n## Conda config\n##\n" >> $(DEBUG_FILE)
+	$(CONDA_EXE) config --get >> $(DEBUG_FILE)
+	@echo "\n##\n## Conda info\n##\n" >> $(DEBUG_FILE)
+	$(CONDA_EXE) info  >> $(DEBUG_FILE)
+	@echo "\n##\n## Conda list\n##\n" >> $(DEBUG_FILE)
+	$(CONDA_EXE) list >> $(DEBUG_FILE)
+
+.PHONY: unfinished
+unfinished:
+	@echo "WARNING: this target is unfinished and may be removed or changed dramatically in future releases"
