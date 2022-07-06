@@ -2,14 +2,14 @@ Make Better Defaults
 ====================
 _Author: Kjell Wooding <kjell@wooding.org>_
 
-This is the git repo for [Makefiles: One great trick for making your conda environments more managable](https://pydata.org/global2021/schedule/presentation/24/makefiles-one-great-trick-for-making-your-conda-environments-more-managable/). A [Pydata Global 2021](https://pydata.org/global2021/) talk given on October 28, 2021 by Kjell Wooding.
+This is the git repo for [Makefiles: One great trick for making your conda environments more managable](https://pydata.org/global2021/schedule/presentation/24/makefiles-one-great-trick-for-making-your-conda-environments-more-managable/). A [Pydata Global 2021](https://pydata.org/global2021/) talk given on October 28, 2021 by Kjell Wooding. ([Video](https://www.youtube.com/watch?v=cCzkL9DhWEE))
 
 Getting Started
 ---------------
 
 To get started, type "make".
 
-To follow along, watch the video once it's posted.
+To follow along, watch [the video](https://www.youtube.com/watch?v=cCzkL9DhWEE).
 
 To learn more about Easydata, the framework that generated this repo, see the [Getting Started Guide](reference/easydata/easydata.md).
 
